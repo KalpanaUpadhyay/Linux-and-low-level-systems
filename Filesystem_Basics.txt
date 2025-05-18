@@ -1,0 +1,80 @@
+📂 1. Linux Directory Structure
+Linux follows a hierarchical tree structure, starting from the root (/) directory.
+
+Directory	Purpose
+/	Root of the file system
+/home	Home directories for users
+/etc	Configuration files
+/bin	Essential command binaries (ls, cp, mv)
+/usr	User-installed software and libraries
+/var	Logs, variable data
+/tmp	Temporary files
+/dev	Device files
+/proc	Virtual filesystem exposing process info
+
+🧭 2. Navigation Commands
+🔹 pwd — Print Working Directory
+pwd
+Shows your current directory path.
+
+🔹 cd — Change Directory
+cd /home/kalpana/Documents
+cd ~        # to home directory
+cd ..       # go up one level
+cd -        # go to previous directory
+🔹 ls — List Files
+ls                # List files
+ls -l             # Long listing with permissions
+ls -a             # Show hidden files
+ls -lh            # Human-readable sizes
+📁 3. File & Directory Operations
+🔹 mkdir — Make Directory
+mkdir my_folder
+mkdir -p folder1/folder2  # Create nested folders
+🔹 touch — Create Empty File
+touch file1.txt
+🔹 cp — Copy File
+cp file1.txt file2.txt
+cp -r dir1/ dir2/        # Copy directories recursively
+🔹 mv — Move or Rename
+mv file1.txt folder/       # Move to folder
+mv file1.txt newname.txt   # Rename file
+🔹 rm — Remove File/Directory
+rm file.txt
+rm -r folder/            # Remove directory recursively
+rm -rf folder/           # Force delete (⚠️ Dangerous)
+🔐 4. File Types in Linux
+Use ls -l to identify file types:
+
+Symbol	Type
+-	Regular file
+d	Directory
+l	Symbolic link
+c	Character device
+b	Block device
+
+Example:
+
+drwxr-xr-x   → directory
+-rw-r--r--   → regular file
+lrwxrwxrwx   → symbolic link
+✏️ 5. Practical Exercises
+Try this in your terminal:
+
+mkdir linux_day1
+cd linux_day1
+touch file1.txt file2.txt
+mkdir dir1 dir2
+cp file1.txt dir1/
+mv file2.txt file2_renamed.txt
+rm file2_renamed.txt
+✅ Summary Checklist
+ Understand Linux folder structure
+
+ Navigate with cd, pwd, ls
+
+ Create, copy, move, and delete files/directories
+
+ Identify file types via ls -l
+
+
