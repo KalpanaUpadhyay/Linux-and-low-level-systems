@@ -1,0 +1,48 @@
+In Linux (and UNIX-like systems), device files in /dev represent hardware devices or virtual devices. These are of two main types: character devices and block devices.
+
+🧱 Block Devices vs 🧾 Character Devices
+Feature	Block Device	Character Device
+Data transfer	Block by block (fixed-size chunks)	Byte by byte
+Buffering	Buffered I/O	Unbuffered or minimal buffering
+Access pattern	Random access (can seek)	Sequential or direct
+Examples	Hard drives, SSDs, USB drives	Keyboards, mice, serial ports, sound cards
+File I/O behavior	Supports filesystem mounting	Usually does not support mounting
+Device file prefix	b in ls -l output (e.g. brw-rw----)	c in ls -l output (e.g. crw-rw----)
+
+🔤 Examples of Each
+🧱 Block Device Examples
+/dev/sda → Entire hard drive
+
+/dev/sda1 → First partition on that drive
+
+/dev/nvme0n1 → NVMe SSD
+
+🧾 Character Device Examples
+/dev/tty → Terminal
+
+/dev/null → Data sink
+
+/dev/random → Random number generator
+
+/dev/autofs → Automount control (your example)
+
+📦 Why This Matters
+Block devices are typically used where data needs to be stored and retrieved in large amounts efficiently.
+
+Character devices are used when data is sent or received as a stream (like input from a keyboard or output to a serial port).
+
+🔧 Under the Hood
+Linux uses major and minor numbers to map device files to actual drivers:
+
+Major number: identifies the driver.
+
+Minor number: identifies the specific device handled by that driver.
+
+For example, /dev/sda1 might have a major number of 8 (block device driver for SCSI disks) and a minor number like 1.
+
+In short:
+Character device: communicates one character at a time, like a keyboard.
+
+Block device: communicates in blocks (like sectors), suitable for storage devices.
+
+
