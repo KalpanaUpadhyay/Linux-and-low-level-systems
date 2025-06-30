@@ -1,0 +1,64 @@
+1. Linux File Hierarchy in Detail
+Review /bin, /sbin, /usr, /lib, /proc, /sys, /dev, /etc, /var
+
+Try:
+tree -L 2 /
+
+2. Special Filesystems: /proc and /sys
+These are virtual filesystems, not stored on disk.
+
+/proc: Kernel & process info (/proc/cpuinfo, /proc/meminfo, /proc/[pid]/)
+
+/sys: Exposes kernel devices, driver info (/sys/class/net/, /sys/block/)
+
+Try:
+cat /proc/uptime
+ls /sys/class/net
+
+3. Understanding Permissions More Deeply
+chmod, umask, sticky bit, setuid/setgid
+
+Try:
+
+touch file; chmod 4755 file; ls -l file
+
+4. Processes and Signals
+ps, top, htop, kill, nice, renice, pidof
+
+Learn signals: SIGKILL, SIGTERM, SIGINT, etc.
+
+Try:
+kill -9 <pid>
+
+5. File Descriptors and /dev/null, /dev/zero
+FD: 0 (stdin), 1 (stdout), 2 (stderr)
+
+Try:
+
+ls > /dev/null
+dd if=/dev/zero of=zero.file bs=1M count=1
+
+6. Shell Redirections and Pipes
+2>&1, command > out 2>&1, |, tee
+
+Try:
+
+ls nofile 2>&1 | tee error.log
+
+7. Intro to System Calls
+Understand what syscalls are (e.g., open(), read(), write())
+
+Use strace:
+
+strace ls
+
+8. Hard Link vs Soft Link
+ln (hard), ln -s (symbolic)
+
+Try:
+
+
+echo test > file
+ln file hardlink
+ln -s file symlink
+ls -li
